@@ -1,26 +1,24 @@
 {
   "apps" : [
     {
-      "name"      : "blog",
-      "script"    : "hexo.sh"
+      "name"      : "hexo",
+      "script"    : "hexo.sh",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production" : {
+        "NODE_ENV": "production"
+      }
     }
   ],
   "deploy" : {
     "production" : {
-      "user" : "root",
+      "user" : "yixuan",
       "host" : "114.215.158.62",
       "ref"  : "origin/master",
       "repo" : "git@github.com:thomasyxy/yixuan_blog.git",
-      "path" : "/alidata/www/yixuan_blog",
-      "post-deploy" : "bash /alidata/www/yixuan_blog/deploy.sh"
-    },
-    "test" : {
-      "user" : "root",
-      "host" : "121.42.87.86",
-      "ref"  : "origin/master",
-      "repo" : "git@github.com:thomasyxy/yixuan_blog.git",
-      "path" : "/alidata/www/yixuan_blog",
-      "post-deploy" : "bash /alidata/www/yixuan_blog/deploy.sh"
+      "path" : "/alidata/www/blog",
+      "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
     }
   }
 }
