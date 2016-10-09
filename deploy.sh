@@ -1,8 +1,7 @@
 
-export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local
 
 
-node -v
 pwd
 # npm install --production
 pm2 startOrRestart ecosystem.json --env production
