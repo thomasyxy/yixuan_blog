@@ -2,17 +2,7 @@
   "apps" : [
     {
       "name"      : "blog",
-      "script"    : "hexo.sh",
-      "env": {
-        "COMMON_VARIABLE": "true"
-      },
-      "env_production" : {
-        "NODE_ENV": "production"
-      }
-    },
-    {
-      "name"      : "WEB",
-      "script"    : "web.js"
+      "script"    : "hexo.sh"
     }
   ],
   "deploy" : {
@@ -22,7 +12,7 @@
       "ref"  : "origin/master",
       "repo" : "git@github.com:thomasyxy/yixuan_blog.git",
       "path" : "/alidata/www/yixuan_blog",
-      "post-deploy" : "pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy" : "bash /alidata/www/yixuan_blog/deploy.sh"
     },
     "test" : {
       "user" : "root",
@@ -30,7 +20,7 @@
       "ref"  : "origin/master",
       "repo" : "git@github.com:thomasyxy/yixuan_blog.git",
       "path" : "/alidata/www/yixuan_blog",
-      "post-deploy" : "pm2 startOrRestart ecosystem.json --env dev"
+      "post-deploy" : "bash /alidata/www/yixuan_blog/deploy.sh"
     }
   }
 }
