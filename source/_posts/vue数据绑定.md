@@ -1,4 +1,7 @@
-# vue 数据绑定
+---
+title: vue 数据绑定
+---
+<!--数据绑定是将数据和视图相关联，当数据发生变化时，可以自动更新视图。-->
 
 ### 插值
 
@@ -95,7 +98,3 @@ Vue.config.unsafeDelimiters = ["{{%", "%}}"];
 > 注意，在2.0版本中：
 > ~~Vue.config.delimiters~~ 由全局配置被改动为一个组件级别的配置。
 > ~~Vue.config.unsafeDelimiters~~ 也被废弃，用v-html代替。
-
-
-
-
