@@ -9,9 +9,8 @@ title: vue 指令
 
 这3个指令的用法比较相似，都属于条件渲染，根据表达式中的值来显示或隐藏dom元素，和angular中的用法是一样的。
 例：
-css:
 
-```
+```css
       .container{
         width: 300px;
         height: 300px;
@@ -33,9 +32,7 @@ css:
       }
 ```
 
-html:
-
-```
+```html
     <div id="app">
       <div class="container">
         <div class="inner-block" v-if="step==1">1</div>
@@ -61,9 +58,7 @@ html:
       <button @click="runStep">开始计数</button>
 ```
 
-javascript:
-
-```
+```javascript
       var vm = new Vue({
         el: '#app',
         data: {
@@ -90,18 +85,16 @@ javascript:
 ###### v-model
 
 `v-model` 指令在表单控件元素上创建双向数据绑定。根据控件类型它自动选取正确的方法更新元素。
-html:
 
-```
+```html
       <div id="app">
         <input type="text"  v-model="name">
         <span>{{name}}</span>
       </div>
 ```
 
-javascript:
 
-```
+```javascript
       var vm = new Vue({
         el: '#app',
         data: {
@@ -117,7 +110,7 @@ v-model可以后面添加一些参数来对用户的输入进行处理。
 * `debounce`:设置一个最小延时，在每次敲击后延时同步输入的数据。注意，此参数并不会延迟执行input事件，只是延迟改变目标数据。
 
 
-```
+```html
       <input v-model="age" number/>
       <input v-model="name" lazy/>
       <input v-model="delay" debounce="500"/>
@@ -125,7 +118,7 @@ v-model可以后面添加一些参数来对用户的输入进行处理。
 
 >但是在vue2.0中，这些参数都被取消了，`number`，`lazy`被改为修饰符来使用，`debounce`直接被废弃。
 
-```
+```html
       <input v-model.number="age" />
       <input v-model.lazy="name" />
 ```
@@ -134,13 +127,11 @@ v-model可以后面添加一些参数来对用户的输入进行处理。
 
 `v-repeat`在1.0之前已废弃，`v-for`需要特殊的别名（1.0.17版本后支持 of 分隔符），如:
 
-```
-	v-for="item in/of mainList"
+```html
+	<li v-for="item in/of mainList"></li>
 ```
 
-css:
-
-```
+```css
   .nav{
     width: 1000px;
     height: 30px;
@@ -192,9 +183,7 @@ css:
   }
 ```
 
-html:
-
-```
+```html
     <div id="app" class="nav">
       <ul class="nav-list">
         <template v-for="item in mainList">
@@ -211,9 +200,7 @@ html:
     </div>
 ```
 
-javascript:
-
-```
+```javascript
       var vm = new Vue({
         el: '#app',
         data: {
@@ -279,7 +266,7 @@ javascript:
 
 v-bind 指令用于响应更新HTML特性，将一个或多个attribute，或者一个组件 prop 动态绑定到表达式，需要把要更新的属性作为参数放在指令之后，如 `v-bing:src`,`:class`(简写)。
 
-```
+```html
       <img v-bind:src="http://xx.yixuan.com/head.jpg"/>
       <div :class="bind-con"></div>
       <custom-component :prop="msg"></custom-component>
@@ -302,7 +289,7 @@ v-bind后还可以添加修饰符
 用在普通元素上时，只能监听原生 DOM 事件。用在自定义元素组件上时，也可以监听子组件触发的自定义事件。
 在监听原生 DOM 事件时，方法以事件为唯一的参数。如果使用内联语句，语句可以访问一个 $event 属性
 
-```
+```html
       <button v-on:click="clickHandlePlay($event)">start</button>
 ```
 
