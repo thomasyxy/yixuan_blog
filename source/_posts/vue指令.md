@@ -527,4 +527,6 @@ Vue.directive('inject', {
 
 > 和 `elementDirective` 一样自定义指令的 `params` 和 `deep` 、 `acceptStatement` 等等这些可以指定的选项在 2.0 中已被废弃。
 
+
+
 以上有部分代码及示例来自 [vue.js](https://cn.vuejs.org/guide/custom-directive.html)
